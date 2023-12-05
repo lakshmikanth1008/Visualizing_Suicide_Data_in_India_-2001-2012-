@@ -14,7 +14,7 @@ st.sidebar.header("Suicides data of India")
 state_names=list(data['State'].unique())
 # st.write(state_names)
 
-selected_state = st.sidebar.multiselect('Select a State', data['State'].unique())
+selected_state = st.sidebar.multiselect('Select a State', data['State'].unique(),default=['Total (All India)'])
 filtered_data = data[data['State'].isin(selected_state)]
 grouped_data = data.groupby(['State','Age_group'])['Total'].sum().reset_index()
 filtered_grouped_data = grouped_data[grouped_data['State'].isin(selected_state)]
