@@ -3,7 +3,6 @@ import altair as alt
 import pandas as pd
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
-from wordcloud import STOPWORDS
 
 data = pd.read_csv("Suicides in India 2001-2012.csv")
 st.set_page_config(layout="wide")
@@ -14,11 +13,6 @@ columns=data.columns
 st.sidebar.header("Suicides data of India")
 state_names=list(data['State'].unique())
 # st.write(state_names)
-words_to_remove = ["Causes known", "Causes", "means (please specify)","known","(Please Specity)", "Others","means"," (Please Specify) ","(Please Specity)","Please"]  # Add your own words to remove
-
-stop_words = set(STOPWORDS)
-data['Type'] = data['Type'].apply(lambda x: ' '.join([word for word in x.split() if word.lower() not in stop_words]))
-data['Type'] = data['Type'].apply(lambda x: ' '.join([word for word in x.split() if word not in words_to_remove]))
 
 selected_state = st.sidebar.multiselect('Select a State', data['State'].unique(),default=['Total (All India)'])
 filtered_data = data[data['State'].isin(selected_state)]
