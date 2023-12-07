@@ -22,8 +22,9 @@ data['Type'] = data['Type'].apply(lambda x: ' '.join([word for word in x.split()
 
 selected_state = st.sidebar.multiselect('Select a State', data['State'].unique(),default=['Total (All India)'])
 filtered_data = data[data['State'].isin(selected_state)]
+selected_age = st.sidebar.multiselect('Select Age_group:', data['Age_group'].unique(),default=['0-100+'])
 grouped_data = data.groupby(['State','Age_group'])['Total'].sum().reset_index()
-filtered_grouped_data = grouped_data[grouped_data['State'].isin(selected_state)]
+filtered_grouped_data = grouped_data[grouped_data['State'].isin(selected_state) & grouped_data['Age_group'].isin(selected_age)]
 
 grouped_data2 = data.groupby(['State','Gender'])['Total'].sum().reset_index()
 filtered_grouped_data2 = grouped_data2[grouped_data2['State'].isin(selected_state)]
@@ -32,7 +33,7 @@ filtered_grouped_data2 = grouped_data2[grouped_data2['State'].isin(selected_stat
 tab1, tab2, tab3 = st.tabs(["State Wide Suicide Count By Age_Group", "Type of Suicide By State", "Suicide Statistics Analysis by Gender"])
 with tab1:
     st.header("States Wide Suicide Count")
-    st.markdown(f"#### Suicide count for {', '.join(selected_state)}")
+    st.markdown(f"#### Suicide count for {', '.join(selected_state)} and {', '.join(selected_age)}")
     chart = alt.Chart(filtered_grouped_data).mark_bar().encode(
     x='State',
     y=alt.Y('Total:Q', title='Sum of Total Suicides'),  
