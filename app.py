@@ -4,7 +4,7 @@ import pandas as pd
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("Exp_7_Suicides in India 2001-2012 (1).csv")
+data = pd.read_csv("Suicides in India 2001-2012.csv")
 st.set_page_config(layout="wide")
 
 st.markdown("# Visualization of Suicides data in India 2001-2012")
