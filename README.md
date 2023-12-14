@@ -13,7 +13,9 @@ In **Tab1 - State-Wide Suicide Count By Age_Group**, users can seamlessly naviga
 
 **Tab3 - Suicide Statistics Analysis by Gender** delves into the gender-specific nuances of suicide counts. Users can analyze the distribution of suicides based on age group and state, facilitating a deeper understanding of the impact on different demographic segments and uncovering potential correlations.
 
-Finally, in **Tab4 - Suicides Statistics Analysis by Year and Age_group**, users can explore the data through an intuitive Heatmap. This feature allows for the seamless investigation of suicide patterns across different years and age groups, enabling a comprehensive understanding of the temporal and demographic aspects of the dataset.
+**Tab4 - Suicides Statistics Analysis by Year and Age_group**, users can explore the data through an intuitive Heatmap. This feature allows for the seamless investigation of suicide patterns across different years and age groups, enabling a comprehensive understanding of the temporal and demographic aspects of the dataset.
+
+Finally, in **Tab5 - Suicide Trends (2001-2012)**,Embark on a comprehensive exploration of suicide trends spanning from 2001 to 2012.This tab offers a nuanced view of the data, allowing you to analyze and interpret the evolving landscape of suicides over the years.
 
 Join us on this journey to shed light on the multifaceted landscape of suicide statistics, providing valuable insights into the factors influencing these trends and fostering a data-driven dialogue for positive change. Explore the tabs, interact with the visualizations, and discover the stories hidden within the numbers. Your exploration begins here.
 
