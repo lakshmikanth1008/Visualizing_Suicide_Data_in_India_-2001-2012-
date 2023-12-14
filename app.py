@@ -34,6 +34,8 @@ filtered_grouped_data3 = grouped_data3[grouped_data3['Year'].isin(selected_year)
 filtered_grouped_data3['Year'] = filtered_grouped_data3['Year'].astype(str).str.replace(',', '')
 
 
+
+
 tab1, tab2, tab3,tab4 = st.tabs(["State Wide Suicide Count By Age_Group", "Type of Suicide By State", "Suicide Statistics Analysis by Gender","Suicides Statistics Analysis by Year and Age_group"])
 with tab1:
     st.header("States Wide Suicide Count")
@@ -49,7 +51,7 @@ with tab1:
     st.altair_chart(chart, use_container_width=True)
     st.write(filtered_grouped_data)
 with tab2:
-    st.header("Type of Suicides based on State and Age_group")
+    st.header("Type of Suicides based on State")
     text = ' '.join(filtered_data['Type'])
 
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
