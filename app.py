@@ -47,7 +47,9 @@ else:
         )
         text = chart.mark_text(
         align='left',
-        baseline='middle'  # Nudges text to right so it doesn't appear on top of the bar
+        baseline='middle',
+        dx=0,
+        dy=-5  # Nudges text to right so it doesn't appear on top of the bar
         ).encode(
         text='Total:Q'
         )   
@@ -100,6 +102,7 @@ else:
         width=600,
         height=400
         )
+
         st.altair_chart(chart2, use_container_width=True)
         st.write(filtered_grouped_data2)
 
@@ -113,7 +116,7 @@ else:
         "Use the intuitive interface to interact with the heatmap, allowing it to unveil the stories hidden within the numbers."
         )
 
-        selected_year = st.multiselect('Select a Year', data['Year'].unique(),default=[2001])
+        selected_year = st.multiselect('Select Year:(By default it is 2001, customize according to your analysis)', data['Year'].unique(),default=[2001])
         filtered_data_year=data[data['Year'].isin(selected_year)]
         grouped_data3= data.groupby(['Age_group','Year'])['Total'].sum().reset_index()
         filtered_grouped_data3 = grouped_data3[grouped_data3['Year'].isin(selected_year) & grouped_data3['Age_group'].isin(selected_age_group)]
