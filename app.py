@@ -45,9 +45,16 @@ else:
         color='Age_group:N',
         tooltip=['State', 'Total','Age_group']
         )
+        text = chart.mark_text(
+        align='left',
+        baseline='middle'  # Nudges text to right so it doesn't appear on top of the bar
+        ).encode(
+        text='Total:Q'
+        )   
+
 
         # Display the bar chart
-        st.altair_chart(chart, use_container_width=True)
+        st.altair_chart(chart+text, use_container_width=True)
         st.write(filtered_grouped_data)
     with tab2:
         st.header("Type of Suicides based on State")
